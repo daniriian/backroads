@@ -12,7 +12,7 @@ const Services = () => {
       <div className={styles.center}>
         {services.map((item, index) => {
           return (
-            <article className={styles.service}>
+            <article className={styles.service} key={index}>
               <span>{item.icon}</span>
               <h4>{item.title}</h4>
               <p>{item.text}</p>
