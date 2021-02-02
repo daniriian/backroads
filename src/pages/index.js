@@ -5,6 +5,7 @@ import Banner from "../components/Banner"
 
 import About from "../components/Home/About"
 import Services from "../components/Home/Services"
+import FeaturedTours from "../components/Home/FeaturedTours"
 
 import StyledHero from "../components/StyledHero"
 import { graphql } from "gatsby"
@@ -25,6 +26,7 @@ const Home = ({ data }) => {
       </StyledHero>
       <About />
       <Services />
+      <FeaturedTours />
     </Layout>
   )
 }
