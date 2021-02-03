@@ -8,16 +8,52 @@ import Title from "../components/Title"
 
 const Blog = props => {
   const { data } = props
-  console.log(data)
+  const { currentPage, numPages } = props.pageContext
+
+  const isFirst = currentPage === 1
+  const isLast = currentPage === numPages
+
+  const prevPage = currentPage - 1 === 1 ? "/blogs" : `blogs/${currentPage - 1}`
+  const nextPage = `blogs/${currentPage + 1}`
+
   return (
-    <section className={styles.blog}>
-      <Title title="latest" subtitle="posts" />
-      <div className={styles.center}>
-        {data.posts.edges.map(({ node }) => {
-          return <BlogCard key={node.id} blog={node} />
-        })}
-      </div>
-    </section>
+    <Layout>
+      <section className={styles.blog}>
+        <Title title="latest" subtitle="posts" />
+        <div className={styles.center}>
+          {data.posts.edges.map(({ node }) => {
+            return <BlogCard key={node.id} blog={node} />
+          })}
+        </div>
+        <section className={styles.links}>
+          {!isFirst && (
+            <AniLink fade to="/blogs" className={styles.link}>
+              Prev
+            </AniLink>
+          )}
+          {Array.from({ length: numPages }, (_, i) => {
+            return (
+              <AniLink
+                fade
+                to={i === 0 ? "/blogs" : `/blogs/${i + 1}`}
+                className={
+                  i + 1 === currentPage
+                    ? `${styles.link} ${styles.active}`
+                    : `${styles.link}`
+                }
+              >
+                {i + 1}
+              </AniLink>
+            )
+          })}
+          {!isLast && (
+            <AniLink fade to={nextPage} className={styles.link}>
+              Next
+            </AniLink>
+          )}
+        </section>
+      </section>
+    </Layout>
   )
 }
 

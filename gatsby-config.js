@@ -14,6 +14,9 @@ module.exports = {
     description:
       "Explore awesomw worldwide tours & discover what makes each of them unique. Forget your daily routine &say yes to adventure !",
     author: "@DanielRiian",
+    twitterUserName: "@danielRT",
+    image: "/defaultBcg.jpeg",
+    siteUrl: "https://backroads-drt.netlify.app",
   },
   plugins: [
     {
@@ -28,6 +31,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-transition-link`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
