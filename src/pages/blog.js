@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../components/Layout"
+import BlogList from "../components/Blog/BlogList"
 
 import StyledHero from "../components/StyledHero"
 import { graphql } from "gatsby"
@@ -8,6 +9,7 @@ const blog = ({ data }) => {
   return (
     <Layout>
       <StyledHero img={data.blogBcg.childImageSharp.fluid} />
+      <BlogList />
     </Layout>
   )
 }

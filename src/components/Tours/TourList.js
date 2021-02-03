@@ -18,7 +18,6 @@ export default class TourList extends Component {
   }
 
   render() {
-    console.log(this.state.tours)
     return (
       <section className={styles.tours}>
         <Title title="our" subtitle="tours" />
